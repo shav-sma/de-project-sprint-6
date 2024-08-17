@@ -1,0 +1,15 @@
+Что сделано:
+    1.  В схеме cdm создана таблица cdm.dm_courier_ledger;
+    2.  В схему dds внесены следующие изменения:
+        - добавлена таблица измерений dds.dm_couriers в которой содежится информация о курьерах;
+        - изменена таблица измерений dds.dm_orders, добавлен id курьера которая связана с таблицей выше;
+    3.  В схему stg внесены следующие изменения:
+        - для данных couriers создана таблица yandexcloud_couriers;
+        - для данных deliveries создана таблица yandexcloud_deliveries;
+        - таблица restaurants не была создана т.к. такие данные уже есть в таблице ordersystem_restaurants;
+    4.  Создан dag с id "de_project_sprint_5_stg" который выполняет обновление новых таблиц схемы stg;
+    5.	Создан dag с id "de_project_sprint_5_dds" который выполняет обновление новой таблицы dds.dm_couriers и обновленной таблицы dds.dm_orders;
+    6.	Создан dag с id "de_project_sprint_5_cdm" который выполняет обновление таблицы cdm.dm_courier_ledger;
+
+Все ddl новый таблиц/изменений указанных выше находятся в папке ddl;
+Все python проекты с dag находятся в папке \src\dags
